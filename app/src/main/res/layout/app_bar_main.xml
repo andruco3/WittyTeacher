@@ -21,9 +21,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <include
-        layout="@layout/activity_main2"
-        android:layout_height="303dp"
-        android:layout_weight="1" />
+        layout="@layout/activity_main2"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

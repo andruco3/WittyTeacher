@@ -19,4 +19,8 @@
         android:background="?android:attr/windowBackground"
         app:menu="@menu/navigation" />
 
+
+    <include
+        layout="@layout/content_main"/>
+
 </LinearLayout>
