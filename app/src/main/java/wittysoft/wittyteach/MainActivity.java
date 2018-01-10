@@ -34,8 +34,11 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import wittysoft.wittyteach.clases.CardViewFragmentClass;
 import wittysoft.wittyteach.home.CardAdapterHome;
+import wittysoft.wittyteach.home.CardViewFragmentHome;
 import wittysoft.wittyteach.view.profes.CardAdapterTeacher;
+import wittysoft.wittyteach.view.profes.CardViewFragmentTeacher;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -95,8 +98,34 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView)
+        final BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.navigation);
+
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+//                if (prevMenuItem != null) {
+//                    prevMenuItem.setChecked(false);
+//                }
+//                else
+//                {
+//                    bottomNavigationView.getMenu().getItem(0).setChecked(false);
+//                }
+
+                bottomNavigationView.getMenu().getItem(position).setChecked(true);
+//                prevMenuItem = bottomNavigationView.getMenu().getItem(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
 
 
@@ -106,21 +135,20 @@ public class MainActivity extends AppCompatActivity
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.navigation_home:
-                                System.out.print("Respiro");
                                 Log.d("mensaje",String.valueOf(item.getItemId()));
-                                mRecyclerView.setAdapter(mAdapterTeacher);
+                                mViewPager.setCurrentItem(0);
                                 break;
                             case R.id.navigation_class:
-                                mRecyclerView.setAdapter(mAdapterHome);
+                                mViewPager.setCurrentItem(1);
                                 Log.d("mensaje",String.valueOf(item.getItemId()));
                                 break;
                             case R.id.navigation_search:
                                 Log.d("mensaje",String.valueOf(item.getItemId()));
-                                mRecyclerView.setAdapter(mAdapterTeacher);
+                                mViewPager.setCurrentItem(3);
                                 break;
                             case R.id.navigation_profes:
                                 Log.d("mensaje",String.valueOf(item.getItemId()));
-                                mRecyclerView.setAdapter(mAdapterTeacher);
+                                mViewPager.setCurrentItem(2);
                                 break;
                         }
                         return true;
@@ -340,10 +368,14 @@ public class MainActivity extends AppCompatActivity
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            if(position == 3)
-                return PlaceholderFragment.newInstance(position + 1);
+            if(position == 0)
+                return CardViewFragmentHome.newInstance(position + 1);
+            else if(position == 1)
+                return CardViewFragmentClass.newInstance(position + 1);
+            else if(position == 2)
+                return CardViewFragmentTeacher.newInstance(position + 1);
             else
-                return CardViewFragment.newInstance(position + 1);
+                return PlaceholderFragment.newInstance(position + 1);
         }
 
         @Override
