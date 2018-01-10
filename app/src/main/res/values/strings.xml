@@ -23,4 +23,13 @@
     <string name="title_home">Home</string>
     <string name="title_class">Clases</string>
     <string name="title_teachers">Profes</string>
+    <string name="title_search">Buscar</string>
+
+    <string-array name="android_dropdown_arrays">
+        <item>Seleccione su materia</item>
+        <item>Algebra</item>
+        <item>Calculo</item>
+        <item>Ingles</item>
+        <item>Musica</item>
+    </string-array>
 </resources>

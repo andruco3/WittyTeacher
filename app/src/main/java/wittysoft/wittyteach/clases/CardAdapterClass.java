@@ -1,4 +1,4 @@
-package wittysoft.wittyteach.view.profes;//package wittysoft.wittyteacher.view;
+package wittysoft.wittyteach.clases;//package wittysoft.wittyteacher.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,47 +16,47 @@ import wittysoft.wittyteach.R;
  * Created by andres on 5/12/17.
  */
 
-public class CardAdapterTeacher extends RecyclerView.Adapter<CardAdapterTeacher.ViewHolder>{
+public class CardAdapterClass extends RecyclerView.Adapter<CardAdapterClass.ViewHolder>{
 
-    List<TeacherItem> teachers;
+    List<ClassItem> teachers;
     //private final OnListFragmentInteractionListener mListener;
 
-    public CardAdapterTeacher(){
+    public CardAdapterClass(){
 
         super();
-        teachers = new ArrayList<TeacherItem>();
+        teachers = new ArrayList<ClassItem>();
 
-        TeacherItem teacher=new TeacherItem();
+        ClassItem teacher=new ClassItem();
         teacher.setName("Diego");
         teacher.setLastName("Corredor");
         teacher.setPhoto(R.drawable.foto1);
         teachers.add(teacher);
 
-        teacher=new TeacherItem();
+        teacher=new ClassItem();
         teacher.setName("nres");
         teacher.setLastName("Corredor");
         teacher.setPhoto(R.drawable.foto1);
         teachers.add(teacher);
 
-        teacher=new TeacherItem();
+        teacher=new ClassItem();
         teacher.setName("Dasds");
         teacher.setLastName("Corredor");
         teacher.setPhoto(R.drawable.foto1);
         teachers.add(teacher);
 
-        teacher=new TeacherItem();
+        teacher=new ClassItem();
         teacher.setName("nrwqees");
         teacher.setLastName("Corredor");
         teacher.setPhoto(R.drawable.foto1);
         teachers.add(teacher);
 
-        teacher=new TeacherItem();
+        teacher=new ClassItem();
         teacher.setName("hjkgh");
         teacher.setLastName("Corredor");
         teacher.setPhoto(R.drawable.foto1);
         teachers.add(teacher);
 
-        teacher=new TeacherItem();
+        teacher=new ClassItem();
         teacher.setName("oujt");
         teacher.setLastName("Corredor");
         teacher.setPhoto(R.drawable.foto1);
@@ -73,7 +73,7 @@ public class CardAdapterTeacher extends RecyclerView.Adapter<CardAdapterTeacher.
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
 
-        TeacherItem teacher = teachers.get(i);
+        ClassItem teacher = teachers.get(i);
         viewHolder.photo.setImageResource(teacher.getPhoto());
         viewHolder.name.setText(teacher.getName());
         viewHolder.lastName.setText(teacher.getLastName());

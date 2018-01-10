@@ -1,13 +1,21 @@
 package wittysoft.wittyteach;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,6 +25,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 import wittysoft.wittyteach.home.CardAdapterHome;
 import wittysoft.wittyteach.view.profes.CardAdapterTeacher;
@@ -29,6 +45,10 @@ public class MainActivity extends AppCompatActivity
     RecyclerView.LayoutManager mLayoutManager;
     RecyclerView.Adapter mAdapterTeacher;
     RecyclerView.Adapter mAdapterHome;
+    private SectionsPagerAdapter mSectionsPagerAdapter;
+    private ViewPager mViewPager;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +56,14 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // Create the adapter that will return a fragment for each of the three
+        // primary sections of the activity.
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = (ViewPager) findViewById(R.id.viewPager);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -47,15 +75,15 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
-        mRecyclerView.setHasFixedSize(true);
-
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-
-        mAdapterTeacher = new CardAdapterTeacher();
-        mAdapterHome = new CardAdapterHome();
-        mRecyclerView.setAdapter(mAdapterTeacher);
+//        mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
+//        mRecyclerView.setHasFixedSize(true);
+//
+//        mLayoutManager = new LinearLayoutManager(this);
+//        mRecyclerView.setLayoutManager(mLayoutManager);
+//
+//        mAdapterTeacher = new CardAdapterTeacher();
+//        mAdapterHome = new CardAdapterHome();
+//        mRecyclerView.setAdapter(mAdapterTeacher);
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -70,6 +98,8 @@ public class MainActivity extends AppCompatActivity
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.navigation);
 
+
+
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -83,6 +113,10 @@ public class MainActivity extends AppCompatActivity
                             case R.id.navigation_class:
                                 mRecyclerView.setAdapter(mAdapterHome);
                                 Log.d("mensaje",String.valueOf(item.getItemId()));
+                                break;
+                            case R.id.navigation_search:
+                                Log.d("mensaje",String.valueOf(item.getItemId()));
+                                mRecyclerView.setAdapter(mAdapterTeacher);
                                 break;
                             case R.id.navigation_profes:
                                 Log.d("mensaje",String.valueOf(item.getItemId()));
@@ -104,6 +138,7 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -150,5 +185,184 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment implements View.OnClickListener {
+        /**
+         * The fragment argument representing the section number for this
+         * fragment.
+         */
+        private static final String ARG_SECTION_NUMBER = "section_number";
+        RecyclerView mRecyclerView;
+        RecyclerView.LayoutManager mLayoutManager;
+        RecyclerView.Adapter mAdapter;
+        View rootView;
+        private Spinner spinner1;
+
+        public EditText etPlannedDate;
+        public EditText etPlannedTime;
+
+        public PlaceholderFragment() {
+        }
+
+        public void selectAdapter(int page) {
+
+            if(page==1 )
+                mAdapter = new CardAdapterTeacher();
+            else if(page==2)
+                mAdapter = new CardAdapterHome();
+            else
+                mAdapter = new CardAdapterTeacher();
+
+        }
+
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.etPlannedDate:
+                    showDatePickerDialog(etPlannedDate);
+                    break;
+                case R.id.etPlannedTime:
+                    showTimePickerDialog(etPlannedTime);
+                    break;
+
+            }
+        }
+
+
+        /**
+         * Returns a new instance of this fragment for the given section
+         * number.
+         */
+        public static PlaceholderFragment newInstance(int sectionNumber) {
+            Log.d("mensaje",String.valueOf(sectionNumber));
+            PlaceholderFragment fragment = new PlaceholderFragment();
+            fragment.selectAdapter(sectionNumber);
+            Bundle args = new Bundle();
+            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            rootView = inflater.inflate(R.layout.search_class, container, false);
+            EditText etPlannedDate = (EditText) rootView.findViewById(R.id.etPlannedDate);
+            EditText etPlannedTime = (EditText) rootView.findViewById(R.id.etPlannedTime);
+            etPlannedDate.setOnClickListener(this);
+            etPlannedTime.setOnClickListener(this);
+            spinner1 = (Spinner) rootView.findViewById(R.id.spinner);
+            spinner1.setOnItemSelectedListener(new ItemSelectedListener());
+//            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+//            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+
+            //mRecyclerView = (RecyclerView)rootView.findViewById(R.id.recycler_view);
+//            mRecyclerView.setHasFixedSize(true);
+//
+//            mRecyclerView.setAdapter(mAdapter);
+
+            return rootView;
+        }
+
+
+
+        private void showDatePickerDialog(final EditText editText) {
+            DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                    // +1 because january is zero
+                    final String selectedDate = day + " / " + (month+1) + " / " + year;
+                    EditText etPlannedDate = (EditText) rootView.findViewById(R.id.etPlannedDate);
+                    etPlannedDate.setText(selectedDate);
+                }
+            });
+            newFragment.show(getActivity().getSupportFragmentManager(), "datePicker");
+        }
+
+        private void showTimePickerDialog(final EditText editText) {
+            TimePickerFragment newFragment = TimePickerFragment.newInstance(new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+
+                    final String selectedDate = hourOfDay + " : " + (minute) ;
+                    EditText etPlannedDate = (EditText) rootView.findViewById(R.id.etPlannedTime);
+                    etPlannedDate.setText(selectedDate);
+
+                }
+
+
+            });
+            newFragment.show(getActivity().getSupportFragmentManager(), "datePicker");
+        }
+
+        public class ItemSelectedListener implements AdapterView.OnItemSelectedListener {
+
+            //get strings of first item
+            String firstItem = String.valueOf(spinner1.getSelectedItem());
+
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                if (firstItem.equals(String.valueOf(spinner1.getSelectedItem()))) {
+                    // ToDo when first item is selected
+                } else {
+                    Toast.makeText(parent.getContext(),
+                            "You have selected : " + parent.getItemAtPosition(pos).toString(),
+                            Toast.LENGTH_LONG).show();
+                    // Todo when item is selected by the user
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg) {
+
+            }
+
+        }
+    }
+
+
+
+
+      /**
+     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
+     * one of the sections/tabs/pages.
+     */
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionsPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            // getItem is called to instantiate the fragment for the given page.
+            // Return a PlaceholderFragment (defined as a static inner class below).
+            if(position == 3)
+                return PlaceholderFragment.newInstance(position + 1);
+            else
+                return CardViewFragment.newInstance(position + 1);
+        }
+
+        @Override
+        public int getCount() {
+            // Show 3 total pages.
+            return 4;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "SECTION 1";
+                case 1:
+                    return "SECTION 2";
+                case 2:
+                    return "SECTION 3";
+            }
+            return null;
+        }
     }
 }
