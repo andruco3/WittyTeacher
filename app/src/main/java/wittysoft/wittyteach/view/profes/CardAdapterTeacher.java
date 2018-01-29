@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -29,37 +30,51 @@ public class CardAdapterTeacher extends RecyclerView.Adapter<CardAdapterTeacher.
         TeacherItem teacher=new TeacherItem();
         teacher.setName("Diego");
         teacher.setLastName("Corredor");
-        teacher.setPhoto(R.drawable.foto1);
+        teacher.setPhoto(R.drawable.canyon);
+        teacher.setLesson("Matematicas, Fisica, Algebra");
+        teacher.setDescription("Me gusta el futbol el deporte y otras cosas");
         teachers.add(teacher);
 
         teacher=new TeacherItem();
         teacher.setName("nres");
         teacher.setLastName("Corredor");
         teacher.setPhoto(R.drawable.foto1);
+        teacher.setLesson("Matematicas, Fisica, Algebra");
+        teacher.setDescription("Me gusta el futbol el deporte y otras cosas");
         teachers.add(teacher);
 
         teacher=new TeacherItem();
         teacher.setName("Dasds");
         teacher.setLastName("Corredor");
         teacher.setPhoto(R.drawable.foto1);
+        teacher.setLesson("Matematicas, Fisica, Algebra");
+        teacher.setDescription("Me gusta el futbol el deporte y otras cosas");
         teachers.add(teacher);
 
         teacher=new TeacherItem();
         teacher.setName("nrwqees");
         teacher.setLastName("Corredor");
         teacher.setPhoto(R.drawable.foto1);
+        teacher.setLesson("Matematicas, Fisica, Algebra");
+        teacher.setDescription("Me gusta el futbol el deporte y otras cosas");
         teachers.add(teacher);
 
         teacher=new TeacherItem();
         teacher.setName("hjkgh");
         teacher.setLastName("Corredor");
         teacher.setPhoto(R.drawable.foto1);
+
+        teacher.setLesson("Matematicas, Fisica, Algebra");
+        teacher.setDescription("Me gusta el futbol el deporte y otras cosas");
         teachers.add(teacher);
 
         teacher=new TeacherItem();
         teacher.setName("oujt");
         teacher.setLastName("Corredor");
         teacher.setPhoto(R.drawable.foto1);
+        teacher.setLesson("Matematicas, Fisica, Algebra");
+        teacher.setDescription("Me gusta el futbol el deporte y otras cosas");
+
         teachers.add(teacher);
     }
 
@@ -77,6 +92,9 @@ public class CardAdapterTeacher extends RecyclerView.Adapter<CardAdapterTeacher.
         viewHolder.photo.setImageResource(teacher.getPhoto());
         viewHolder.name.setText(teacher.getName());
         viewHolder.lastName.setText(teacher.getLastName());
+        viewHolder.description.setText(teacher.getDescription());
+        viewHolder.lesson.setText(teacher.getLesson());
+
 
 //        viewHolder.mView.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -105,8 +123,8 @@ public class CardAdapterTeacher extends RecyclerView.Adapter<CardAdapterTeacher.
         public ImageView photo;
         public TextView name;
         public TextView lastName;
-     //   private TextView profession;
-//        private ListView className;
+        private TextView description;
+        private TextView lesson;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -114,8 +132,8 @@ public class CardAdapterTeacher extends RecyclerView.Adapter<CardAdapterTeacher.
             photo = (ImageView)itemView.findViewById(R.id.img_teacher);
             name = (TextView)itemView.findViewById(R.id.name);
             lastName = (TextView)itemView.findViewById(R.id.last_name);
-          //  profession = (TextView)itemView.findViewById(R.id.tv_nature);
-//            //className = (ListView) itemView.findViewById(R.id.tv_des_nature);
+            description = (TextView)itemView.findViewById(R.id.description);
+            lesson = (TextView) itemView.findViewById(R.id.lesson);
         }
     }
 }

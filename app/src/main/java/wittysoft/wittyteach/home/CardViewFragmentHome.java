@@ -2,6 +2,7 @@ package wittysoft.wittyteach.home;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -57,6 +58,8 @@ public  class CardViewFragmentHome extends Fragment {
 
             mRecyclerView = (RecyclerView)rootView.findViewById(R.id.recycler_view);
             mRecyclerView.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(getActivity());
+        mRecyclerView.setLayoutManager(mLayoutManager);
 //
             mRecyclerView.setAdapter(mAdapter);
 

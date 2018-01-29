@@ -26,7 +26,7 @@
     <string name="title_search">Buscar</string>
 
     <string-array name="android_dropdown_arrays">
-        <item>Seleccione su materia</item>
+        <item>Materia</item>
         <item>Algebra</item>
         <item>Calculo</item>
         <item>Ingles</item>

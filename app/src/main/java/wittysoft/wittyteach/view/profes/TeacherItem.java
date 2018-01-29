@@ -10,11 +10,8 @@ public class TeacherItem {
 
     private String name;
     private String lastName;
-//    private String profession;
-//    private String class1;
-//    private String class2;
-//    private String class3;
-//    private List<String> className;
+    private String lesson;
+    private String description;
     private int photo;
 
     public String getName() {
@@ -33,38 +30,6 @@ public class TeacherItem {
         this.lastName = lastName;
     }
 
-//    public String getProfession() {
-//        return profession;
-//    }
-//
-//    public void setProfession(String profession) {
-//        this.profession = profession;
-//    }
-
-//    public String getClass1() {
-//        return class1;
-//    }
-//
-//    public void setClass1(String class1) {
-//        this.class1 = class1;
-//    }
-//
-//    public String getClass2() {
-//        return class2;
-//    }
-//
-//    public void setClass2(String class2) {
-//        this.class2 = class2;
-//    }
-//
-//    public String getClass3() {
-//        return class3;
-//    }
-//
-//    public void setClass3(String class3) {
-//        this.class3 = class3;
-//    }
-//
     public int getPhoto() {
         return photo;
     }
@@ -73,6 +38,19 @@ public class TeacherItem {
         this.photo = photo;
     }
 
+    public String getLesson() {
+        return lesson;
+    }
 
+    public void setLesson(String lesson) {
+        this.lesson = lesson;
+    }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

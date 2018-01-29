@@ -39,9 +39,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/img_teacher"
-                android:paddingTop="5dp"
                 android:text="Test"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textStyle="bold"/>
 
             <TextView
@@ -49,36 +48,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/name"
-                android:paddingTop="5dp"
-                android:paddingRight="2dp"
-                android:paddingLeft="2dp"
                 android:text="Test"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/lesson"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/img_teacher"
-                android:layout_below="@+id/name"
-                android:paddingLeft="2dp"
-                android:text="Materias"
-                android:textSize="15sp"
-                android:textColor="@color/colorLesson"/>
-            <TextView
-                android:id="@+id/description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/img_teacher"
-                android:layout_below="@+id/lesson"
-                android:paddingLeft="2dp"
-                android:paddingTop="5dp"
-                android:text="Descripcion"
-                android:textSize="15sp"
-                android:textStyle="italic"
-                android:textColor="@color/colorDescription"/>
-            <!--android:layout_toRightOf="@+id/name"-->
             <!--<TextView-->
                 <!--android:id="@+id/last_name"-->
                 <!--android:layout_width="fill_parent"-->
