@@ -26,40 +26,40 @@ public class CardAdapterHome extends RecyclerView.Adapter<CardAdapterHome.ViewHo
         teachers = new ArrayList<HomeItem>();
 
         HomeItem teacher=new HomeItem();
-        teacher.setName("soy una cosa ");
-        teacher.setDescription("fea 2");
-        teacher.setPhoto(R.drawable.foto1);
+        teacher.setName("Libros de cuentos en la tierra del olvido");
+        teacher.setDescription("En el corregimiento de Nazareth se erige un pequeño centro cultural que acoge y forma a los niños wayúu cada tarde. Un lugar de paz entre tanta miseria en el que Isabel Fernández González, su coordinadora, hace de madre y de guía.");
+        teacher.setPhoto(R.drawable.articulo1);
         teachers.add(teacher);
 
         teacher=new HomeItem();
-        teacher.setName("soy una cosa ");
-        teacher.setDescription("fea 3");
-        teacher.setPhoto(R.drawable.foto1);
+        teacher.setName("El hombre que recorre Latinoamérica en busca de la mejor escuela");
+        teacher.setDescription("Bruno Iriarte emprendió una travesía desde México hasta Argentina a bordo de una vieja camioneta Volkswagen para conocer las mejores experiencias en educación del continente. Esta es su historia.");
+        teacher.setPhoto(R.drawable.articulo2);
         teachers.add(teacher);
 
-        teacher=new HomeItem();
-        teacher.setName("soy una cosa ");
-        teacher.setDescription("fea 4");
-        teacher.setPhoto(R.drawable.foto1);
-        teachers.add(teacher);
-
-        teacher=new HomeItem();
-        teacher.setName("soy una cosa ");
-        teacher.setDescription("fea 5");
-        teacher.setPhoto(R.drawable.foto1);
-        teachers.add(teacher);
-
-        teacher=new HomeItem();
-        teacher.setName("soy una cosa ");
-        teacher.setDescription("fea 6");
-        teacher.setPhoto(R.drawable.foto1);
-        teachers.add(teacher);
-
-        teacher=new HomeItem();
-        teacher.setName("soy una cosa ");
-        teacher.setDescription("fea 7");
-        teacher.setPhoto(R.drawable.foto1);
-        teachers.add(teacher);
+//        teacher=new HomeItem();
+//        teacher.setName("soy una cosa ");
+//        teacher.setDescription("fea 4");
+//        teacher.setPhoto(R.drawable.foto1);
+//        teachers.add(teacher);
+//
+//        teacher=new HomeItem();
+//        teacher.setName("soy una cosa ");
+//        teacher.setDescription("fea 5");
+//        teacher.setPhoto(R.drawable.foto1);
+//        teachers.add(teacher);
+//
+//        teacher=new HomeItem();
+//        teacher.setName("soy una cosa ");
+//        teacher.setDescription("fea 6");
+//        teacher.setPhoto(R.drawable.foto1);
+//        teachers.add(teacher);
+//
+//        teacher=new HomeItem();
+//        teacher.setName("soy una cosa ");
+//        teacher.setDescription("fea 7");
+//        teacher.setPhoto(R.drawable.foto1);
+//        teachers.add(teacher);
     }
 
 

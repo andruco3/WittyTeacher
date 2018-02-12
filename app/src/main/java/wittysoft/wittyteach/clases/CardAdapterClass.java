@@ -27,40 +27,76 @@ public class CardAdapterClass extends RecyclerView.Adapter<CardAdapterClass.View
         teachers = new ArrayList<ClassItem>();
 
         ClassItem teacher=new ClassItem();
-        teacher.setName("Diego");
-        teacher.setLastName("Corredor");
-        teacher.setPhoto(R.drawable.foto1);
+        teacher.setName("Matemáticas");
+        teacher.setTime("14:00");
+        teacher.setDate("02/02/1988");
+        teacher.setDuration("2 Horas");
+        teacher.setSite("Biblioteca Luis Angel Arango");
+        teacher.setState("Pendiente");
+        teacher.setTeacher("Luis Alejandro Galvis");
+        teacher.setValue(15.000);
         teachers.add(teacher);
 
         teacher=new ClassItem();
-        teacher.setName("nres");
-        teacher.setLastName("Corredor");
-        teacher.setPhoto(R.drawable.foto1);
+        teacher.setName("Matemáticas");
+        teacher.setTime("14:00");
+        teacher.setDate("02/02/2018");
+        teacher.setDuration("4 Horas");
+        teacher.setSite("Casa");
+        teacher.setState("Pendiente");
+        teacher.setTeacher("Luis Alejandro Galvis");
+        teacher.setValue(45.000);
         teachers.add(teacher);
 
-        teacher=new ClassItem();
-        teacher.setName("Dasds");
-        teacher.setLastName("Corredor");
-        teacher.setPhoto(R.drawable.foto1);
-        teachers.add(teacher);
-
-        teacher=new ClassItem();
-        teacher.setName("nrwqees");
-        teacher.setLastName("Corredor");
-        teacher.setPhoto(R.drawable.foto1);
-        teachers.add(teacher);
-
-        teacher=new ClassItem();
-        teacher.setName("hjkgh");
-        teacher.setLastName("Corredor");
-        teacher.setPhoto(R.drawable.foto1);
-        teachers.add(teacher);
-
-        teacher=new ClassItem();
-        teacher.setName("oujt");
-        teacher.setLastName("Corredor");
-        teacher.setPhoto(R.drawable.foto1);
-        teachers.add(teacher);
+//        teacher=new ClassItem();
+//        teacher.setName("nres");
+//        teacher.setDate("02/02/1988");
+//        teacher.setDuration("2 Horas");
+//        teacher.setSite("Biblioteca Luis Angel Arango");
+//        teacher.setState("True");
+//        teacher.setTeacher("Luis");
+//        teacher.setValue(15.0);
+//        teachers.add(teacher);
+//
+//        teacher=new ClassItem();
+//        teacher.setName("Dasds");
+//        teacher.setDate("02/02/1988");
+//        teacher.setDuration("2 Horas");
+//        teacher.setSite("Biblioteca Luis Angel Arango");
+//        teacher.setState("True");
+//        teacher.setTeacher("Luis");
+//        teacher.setValue(15.0);
+//        teachers.add(teacher);
+//
+//        teacher=new ClassItem();
+//        teacher.setName("nrwqees");
+//        teacher.setDate("02/02/1988");
+//        teacher.setDuration("2 Horas");
+//        teacher.setSite("Biblioteca Luis Angel Arango");
+//        teacher.setState("True");
+//        teacher.setTeacher("Luis");
+//        teacher.setValue(15.0);
+//        teachers.add(teacher);
+//
+//        teacher=new ClassItem();
+//        teacher.setName("hjkgh");
+//        teacher.setDate("02/02/1988");
+//        teacher.setDuration("2 Horas");
+//        teacher.setSite("Biblioteca Luis Angel Arango");
+//        teacher.setState("True");
+//        teacher.setTeacher("Luis");
+//        teacher.setValue(15.0);
+//        teachers.add(teacher);
+//
+//        teacher=new ClassItem();
+//        teacher.setName("oujt");
+//        teacher.setDate("02/02/1988");
+//        teacher.setDuration("2 Horas");
+//        teacher.setSite("Biblioteca Luis Angel Arango");
+//        teacher.setState("True");
+//        teacher.setTeacher("Luis");
+//        teacher.setValue(15.0);
+//        teachers.add(teacher);
     }
 
 
@@ -74,9 +110,16 @@ public class CardAdapterClass extends RecyclerView.Adapter<CardAdapterClass.View
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
 
         ClassItem teacher = teachers.get(i);
-        viewHolder.photo.setImageResource(teacher.getPhoto());
+        //viewHolder.photo.setImageResource(teacher.getPhoto());
         viewHolder.name.setText(teacher.getName());
-        viewHolder.lastName.setText(teacher.getLastName());
+        viewHolder.date.setText(teacher.getDate());
+        viewHolder.time.setText(teacher.getTime());
+        viewHolder.duration.setText(teacher.getDuration());
+    //    viewHolder.state.setText(teacher.getState());
+        viewHolder.teacher.setText(teacher.getTeacher());
+        viewHolder.site.setText(teacher.getSite());
+        viewHolder.value.setText(String.valueOf(teacher.getValue()));
+
 
 //        viewHolder.mView.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -101,21 +144,27 @@ public class CardAdapterClass extends RecyclerView.Adapter<CardAdapterClass.View
 
 
     class ViewHolder extends RecyclerView.ViewHolder{
-  //      public final View mView;
-        public ImageView photo;
+
         public TextView name;
-        public TextView lastName;
-     //   private TextView profession;
-//        private ListView className;
+        public TextView date;
+        public TextView time;
+        public TextView duration;
+     //   public TextView state;
+        public TextView teacher;
+        public TextView site;
+        public TextView value;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
-//            mView=itemView;
-            photo = (ImageView)itemView.findViewById(R.id.img_teacher);
             name = (TextView)itemView.findViewById(R.id.name);
-            lastName = (TextView)itemView.findViewById(R.id.last_name);
-          //  profession = (TextView)itemView.findViewById(R.id.tv_nature);
-//            //className = (ListView) itemView.findViewById(R.id.tv_des_nature);
+            date = (TextView)itemView.findViewById(R.id.date);
+            time = (TextView)itemView.findViewById(R.id.time);
+            duration = (TextView)itemView.findViewById(R.id.duration);
+       //     state = (TextView)itemView.findViewById(R.id.state);
+            teacher = (TextView)itemView.findViewById(R.id.teacher);
+            site = (TextView)itemView.findViewById(R.id.site);
+            value = (TextView)itemView.findViewById(R.id.value);
         }
     }
 }

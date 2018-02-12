@@ -63,6 +63,7 @@
                 android:layout_toRightOf="@+id/img_teacher"
                 android:layout_below="@+id/name"
                 android:paddingLeft="2dp"
+                android:drawableLeft="@drawable/ic_assignment_turned_in_black_24dp"
                 android:text="Materias"
                 android:textSize="15sp"
                 android:textColor="@color/colorLesson"/>

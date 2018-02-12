@@ -7,13 +7,13 @@ package wittysoft.wittyteach.clases;
 public class ClassItem {
 
     private String name;
-    private String lastName;
-//    private String profession;
-//    private String class1;
-//    private String class2;
-//    private String class3;
-//    private List<String> className;
-    private int photo;
+    private String date;
+    private String time;
+    private String state;
+    private String teacher;
+    private String site;
+    private String duration;
+    private double value;
 
     public String getName() {
         return name;
@@ -23,54 +23,59 @@ public class ClassItem {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getDate() {
+        return date;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-//    public String getProfession() {
-//        return profession;
-//    }
-//
-//    public void setProfession(String profession) {
-//        this.profession = profession;
-//    }
-
-//    public String getClass1() {
-//        return class1;
-//    }
-//
-//    public void setClass1(String class1) {
-//        this.class1 = class1;
-//    }
-//
-//    public String getClass2() {
-//        return class2;
-//    }
-//
-//    public void setClass2(String class2) {
-//        this.class2 = class2;
-//    }
-//
-//    public String getClass3() {
-//        return class3;
-//    }
-//
-//    public void setClass3(String class3) {
-//        this.class3 = class3;
-//    }
-//
-    public int getPhoto() {
-        return photo;
+    public String getTime() {
+        return time;
     }
 
-    public void setPhoto(int photo) {
-        this.photo = photo;
+    public void setTime(String time) {
+        this.time = time;
     }
 
+    public String getState() {
+        return state;
+    }
 
+    public void setState(String state) {
+        this.state = state;
+    }
 
+    public String getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
+
+    public String getSite() {
+        return site;
+    }
+
+    public void setSite(String site) {
+        this.site = site;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
+    }
 }
